@@ -18,26 +18,7 @@ LevelSelect1.prototype = {
     },
 
     preload: function () {
-        game.load.tilemap('levelSelection', '/../assets/tilesheet/levelselection.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.image('tilesheetLarge', '/../assets/tilesheet/tilesheetLarge.png');
-        game.load.spritesheet('playerSpriteSheet', '/../assets/images/player.png', 128, 128);
-        game.load.image('overlay', '/../assets/images/overlay2.png');
-        game.load.image('elementFire', '/../assets/images/elementFire.png');
-        game.load.image('elementWater', '/../assets/images/elementWater.png');
-        game.load.image('firebolt', '/../assets/images/firebolt.png');
-        game.load.spritesheet('firecircle', '/../assets/images/FireExplosion.png', 266, 267);
-        game.load.image('healthBar', '/../assets/images/healthbar.png');
-        game.load.image('manaBar', '/../assets/images/manabar.png');
-        game.load.image('expBar', '/../assets/images/expbar.png');
-        game.load.image('key1', '/../assets/images/key.png');
-        game.load.image('openDoor', '/../assets/images/openDoor.png');
-        game.load.image('lockedDoor', '/../assets/images/lockedDoor.png');
-        game.load.image('lockedDoor2', '/../assets/images/lockedDoor2.png');
-        game.load.image('lockedDoor3', '/../assets/images/lockedDoor2.png');
-        game.load.image('ladder', '/../assets/images/ladder.png');
-        game.load.image('heart', '/../assets/images/heart.png', 48, 128);
 
-        game.load.image('vases', '/../assets/images/vases.png', 128, 128);
         this.animationRunning = false;
         this.timer = game.time.create(false);
 

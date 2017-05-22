@@ -36,7 +36,7 @@ GameMenu.prototype = {
         game.add.existing(this.titleText)
         
         this.addMenuOption('Start', function (target) {
-            game.state.start('LevelSelect1');
+            game.state.start('Game');
         });
         this.addMenuOption('Help', function (target) {
             game.state.start('help');

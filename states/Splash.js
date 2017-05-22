@@ -8,9 +8,7 @@ Splash.prototype = {
         game.load.script('Options', 'states/Options.js');
         game.load.script('Quit', 'states/Quit.js');
         game.load.script('Style', 'lib/style.js');
-        game.load.script('LevelSelect', 'states/LevelSelect.js');
         game.load.script('LevelSelect1', 'states/LevelSelect1.js');
-        game.load.script('LevelSelect2', 'states/LevelSelect2.js');
         game.load.script('Controls', 'states/Controls.js');
         game.load.script('Level2', 'states/level2.js');
         game.load.script('Game4', 'states/Game4.js');
@@ -30,6 +28,7 @@ Splash.prototype = {
     },
 
     loadImages: function () {
+        console.log("Version 1.2");
         game.load.image('menu-bg', 'assets/images/menu-bg.jpg');
         game.load.image('options-bg', 'assets/images/options-bg.jpg');
         game.load.image('placeholder', 'assets/images/placeholder.jpg');
@@ -38,11 +37,11 @@ Splash.prototype = {
         game.load.image('cheats', 'assets/images/cheats.png');
         game.load.image('help', 'assets/images/helpMenu.png');
         
-        // for the help menu
-//        game.load.image('helpMenu1', 'assets/images/helpMenu1.png');
-//        game.load.image('helpMenu2', 'assets/images/helpMenu2.png');
-//        game.load.image('helpMenu3', 'assets/images/helpMenu3.png');
-//        game.load.image('helpMenu4', 'assets/images/helpMenu4.png');
+        // Load Tile Sheet
+        game.load.image('tilesheetLarge', 'assets/tilesheet/tilesheetLarge.png');
+        // ASSETS FOR THE PLAYER
+        game.load.spritesheet('playerSpriteSheet', 'assets/images/player.png', 128, 128);
+        
         
         // Load Game Sounds
         game.load.audio('background', ['assets/bgm/background.mp3']);
@@ -56,8 +55,71 @@ Splash.prototype = {
         game.load.image('energyEmpty', 'assets/images/energyEmpty.png');
         //Bengy's Text Box
         game.load.image('bengyTextBox', 'assets/images/bengyTextBox.png', 128, 128);
+      
         
+        //Load Sounds/Music
+        game.load.audio('background', ['assets/bgm/background.mp3']);
+        game.load.audio('explosionSound', ['assets/bgm/fire1.wav']);
+        game.load.audio('walk', ['assets/bgm/walk.mp3']);
+        game.load.audio('switch', ['assets/bgm/switch.mp3']);
+        game.load.audio('ow', ['assets/bgm/ow.mp3']);
+        
+        //Load Bengys Text Box
+        game.load.image('bengyTextBox', 'assets/images/bengyTextBox.png', 128, 128);
 
+        // Load Help Menus
+        game.load.image('helpMenu1', 'assets/images/helpMenu1.png');
+        game.load.image('helpMenu2', 'assets/images/helpMenu2.png');
+        game.load.image('helpMenu3', 'assets/images/helpMenu3.png');
+        game.load.image('helpMenu4', 'assets/images/helpMenu4.png');
+        
+        // Load PROPS AND ITEMS
+        game.load.image('spellbook', 'assets/images/spellbook.png', 128, 128);
+        game.load.image('vases', 'assets/images/vases.png', 128, 128);
+        game.load.image('brickWall', 'assets/images/brickWall.png', 48, 128);
+        game.load.image('brickWallSquare', 'assets/images/brickWallSquare.png', 48, 128);
+        game.load.image('switchOn', 'assets/images/switchOn.png', 48, 128);
+        game.load.image('switchOff', 'assets/images/switchOff.png', 48, 128);
+        game.load.image('key', 'assets/images/key.png', 48, 128);
+        game.load.image('deathText', 'assets/images/deathText.png', 48, 128);
+        game.load.image('heart', 'assets/images/heart.png', 48, 128);
+        game.load.image('ladder', 'assets/images/ladder.png', 128, 128);
+        
+        // Load Spells
+        game.load.image('bengySpellScroll', 'assets/images/bengySpellScroll.png');
+        game.load.image('firebolt', 'assets/images/firebolt.png');
+        game.load.image('waterbolt', 'assets/images/waterbolt.png');
+        game.load.spritesheet('firecircle', 'assets/images/FireExplosion.png',266,267);
+        game.load.spritesheet('explosion', 'assets/images/explosionSpriteSheet.png',128,120);
+        game.load.spritesheet('swapAnimation', 'assets/images/swapAnimation.png',128,128);
+        
+        // Elements GUI
+        game.load.image('elementFire', 'assets/images/elementFire.png');
+        game.load.image('elementWater', 'assets/images/elementWater.png');
+        game.load.image('cosmic', 'assets/images/cosmic.png');
+        
+        // Load Levels
+        game.load.tilemap('HotLevel2', 'assets/tilesheet/HotLevel2.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.tilemap('TutorialLevel', 'assets/tilesheet/TutorialLevel.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.tilemap('levelSelection', 'assets/tilesheet/levelselection.json', null, Phaser.Tilemap.TILED_JSON);
+        
+        
+        // Load Player Spritesheet
+        game.load.spritesheet('playerSpriteSheet', 'assets/images/player.png', 128, 128);
+        // Load Enemy Assets
+        game.load.image('enemyRat', 'assets/enemies/enemyRat.png', 128, 128);
+        game.load.image('fireRat', 'assets/enemies/fireRat.png', 128, 128);
+        game.load.spritesheet('bengy', 'assets/enemies/caterpillar.png', 64, 96);
+        game.load.spritesheet('villain', 'assets/enemies/villain_spritesheet.png', 64, 96);
+        game.load.spritesheet('bengy', 'assets/enemies/caterpillar.png', 64, 96);
+        // Load Game Overlay (not currently being used)
+        game.load.image('overlay', 'assets/images/overlay2.png');
+        
+        //Load Door iamges
+        game.load.image('openDoor', 'assets/images/openDoor.png');
+        game.load.image('lockedDoor', 'assets/images/lockedDoor.png');
+        game.load.image('lockedDoor2', 'assets/images/lockedDoor2.png');
+        game.load.image('lockedDoor3', 'assets/images/lockedDoor2.png');
     },
 
     loadFonts: function () {
@@ -92,9 +154,7 @@ Splash.prototype = {
     },
     addGameStates: function () {
         game.state.add("GameMenu", GameMenu);
-        game.state.add("LevelSelect", LevelSelect);
         game.state.add("LevelSelect1", LevelSelect1);
-        game.state.add("LevelSelect2", LevelSelect2);
         game.state.add("Quit", Quits);
         game.state.add("Options", Options);
         game.state.add("Game", Game);

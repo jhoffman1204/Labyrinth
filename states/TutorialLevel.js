@@ -19,10 +19,8 @@ TutorialLevel.prototype = {
 
     preload: function(){
         // ASSETS FOR THE LEVEL
-        game.load.tilemap('HotLevel2', '/../assets/tilesheet/TutorialLevel.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.image('tilesheetLarge', '/../assets/tilesheet/tilesheetLarge.png');
-        // ASSETS FOR THE PLAYER
-        game.load.spritesheet('playerSpriteSheet', '/../assets/images/player.png', 128, 128);
+    
+        
         // ASSET FOR ENEMY
         game.load.image('enemyRat', '/../assets/enemies/enemyRat.png', 128, 128);
         game.load.spritesheet('bengy', '/../assets/enemies/caterpillar.png', 64, 96);
@@ -60,14 +58,7 @@ TutorialLevel.prototype = {
         game.load.image('tutorial_4', '/../assets/images/tutorialMessage4.png', 128, 128);
         game.load.image('tutorial_5', '/../assets/images/tutorialMessage5.png', 128, 128);
         game.load.image('tutorial_6', '/../assets/images/tutorialMessage6.png', 128, 128);
-        // Load Background Music
-        game.load.audio('background', ['/../assets/bgm/background.mp3']);
-        game.load.audio('explosionSound', ['/../assets/bgm/fire1.wav']);
-        game.load.audio('walk', ['/../assets/bgm/walk.mp3']);
-        game.load.audio('switch', ['/../assets/bgm/switch.mp3']);
-        game.load.audio('ow', ['/../assets/bgm/ow.mp3']);
-        //Bengy's Text Box
-        game.load.image('bengyTextBox', '/../assets/images/bengyTextBox.png', 128, 128);
+        
         
         // VARIABLES THAT ARE THIS STATE SPECIFIC
         this.animationRunning = false;
@@ -701,7 +692,7 @@ TutorialLevel.prototype = {
     }
     },
     initializeMap: function() {
-        this.map = this.game.add.tilemap('HotLevel2');
+        this.map = this.game.add.tilemap('TutorialLevel');
         this.map.addTilesetImage('tilesheetLarge', 'tilesheetLarge');
         this.backgroundlayer = this.map.createLayer('walkable');
         this.backgroundlayer.resizeWorld();
